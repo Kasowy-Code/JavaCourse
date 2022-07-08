@@ -1,11 +1,13 @@
-package com.example.demo;
+package com.example.demo.producer;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
 @Service
-public class ConsoleMessageProducer implements  MessageProducer{
+@Profile("console")
+public class ConsoleMessageProducer implements MessageProducer {
     @Override
     public String getMessage() {
         Scanner scanner = new Scanner(System.in);
