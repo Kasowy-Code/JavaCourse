@@ -1,7 +1,11 @@
 package com.example.demo;
 
 public class MessagePrinter {
-    private final SimpleMessageProducer messageProducer = new SimpleMessageProducer();
+    private final MessageProducer messageProducer;
+
+    public MessagePrinter (MessageProducer messageProducer) {
+        this.messageProducer = messageProducer;
+    }
 
     public void printMessage() {
         String message = messageProducer.getMessage();

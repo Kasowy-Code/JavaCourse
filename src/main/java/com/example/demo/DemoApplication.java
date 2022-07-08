@@ -9,7 +9,10 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        MessagePrinter messagePrinter = new MessagePrinter();
-        messagePrinter.printMessage();
+        MessageProducer messageProducer = new SimpleMessageProducer();
+        MessagePrinter firstMessagePrinter = new MessagePrinter(messageProducer);
+        MessagePrinter secondMessagePrinter = new MessagePrinter(messageProducer);
+        firstMessagePrinter.printMessage();
+        secondMessagePrinter.printMessage();
     }
 }
