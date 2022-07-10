@@ -1,24 +1,25 @@
-package com.example.company;
+package com.example.onetoone;
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-class Employee {
+class UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
-    private Double salary;
+    private String address;
+    @OneToOne(mappedBy = "userDetails")
+    private User user;
 
-    public Employee() { }
+    public UserDetails() {
+    }
 
-    public Employee(Long id, String firstName, String lastName, Double salary) {
-        this.id = id;
+    public UserDetails(String firstName, String lastName, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.salary = salary;
+        this.address = address;
     }
 
     public Long getId() {
@@ -45,21 +46,29 @@ class Employee {
         this.lastName = lastName;
     }
 
-    public Double getSalary() {
-        return salary;
+    public String getAddress() {
+        return address;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "UserDetails{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", salary=" + salary +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
