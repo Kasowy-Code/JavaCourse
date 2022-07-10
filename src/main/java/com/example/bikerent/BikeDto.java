@@ -1,13 +1,13 @@
 package com.example.bikerent;
 
-public class NewBikeDTO {
+public class BikeDto {
     private Long id;
     private String model;
     private String serialNo;
     private double hourPrice;
     private double dayPrice;
 
-    public NewBikeDTO(Long id, String model, String serialNo, double hourPrice, double dayPrice) {
+    public BikeDto(Long id, String model, String serialNo, double hourPrice, double dayPrice) {
         this.id = id;
         this.model = model;
         this.serialNo = serialNo;
@@ -53,5 +53,16 @@ public class NewBikeDTO {
 
     public void setDayPrice(double dayPrice) {
         this.dayPrice = dayPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "BikeDto{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", serialNo='" + serialNo + '\'' +
+                ", hourPrice=" + hourPrice +
+                ", dayPrice=" + dayPrice +
+                '}';
     }
 }

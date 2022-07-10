@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BikeService {
@@ -14,7 +16,7 @@ public class BikeService {
         this.bikeRepository = bikeRepository;
     }
     @Transactional
-    public void add(NewBikeDTO newBike) {
+    public void add(BikeDto newBike) {
         Bike bike = new Bike(newBike.getId(), newBike.getModel(), newBike.getSerialNo(), newBike.getHourPrice(), newBike.getDayPrice());
         bikeRepository.save(bike);
     }
@@ -23,25 +25,39 @@ public class BikeService {
         bikeRepository.deleteById(bikeId);
     }
     @Transactional
-    public double rentForHours(Long bikeId, int hours, String borrowerId) {
+    public double rentForHours(String serialNo, int hours, String borrowerId) {
         LocalDateTime dateOfReturn = LocalDateTime.now().plusHours(hours);
-        Bike bike = updateBike(bikeId, borrowerId, dateOfReturn);
-        return bike.getHourPrice()*hours;
+        double hourPrice = updateBike(serialNo, borrowerId, dateOfReturn).getHourPrice();
+        return hourPrice*hours;
     }
     @Transactional
-    public double rentForDay(Long bikeId, String borrowerId) {
+    public double rentForDay(String serialNo, String borrowerId) {
         LocalDateTime dateOfReturn = LocalDateTime.now().withHour(23).withMinute(59);
-        Bike bike = updateBike(bikeId, borrowerId, dateOfReturn);
-        return bike.getDayPrice();
+        return updateBike(serialNo, borrowerId, dateOfReturn).getDayPrice();
     }
     @Transactional
-    public void returnBike(Long bikeId) {
-        updateBike(bikeId, null, null);
+    public void returnBike(String serialNo) {
+        updateBike(serialNo, null, null);
     }
-    private Bike updateBike(Long bikeId, String borrowerId, LocalDateTime dateOfReturn) {
-        Bike bike = bikeRepository.findById(bikeId).orElseThrow(BikeNotFoundException::new);
+    private Bike updateBike(String serialNo, String borrowerId, LocalDateTime dateOfReturn) {
+        Bike bike = bikeRepository.findBySerialNoIgnoreCase(serialNo).orElseThrow(BikeNotFoundException::new);
         bike.setDateOfReturn(dateOfReturn);
         bike.setBorrowerId(borrowerId);
         return bike;
+    }
+
+    public int countBorrowedBikes() {
+        return bikeRepository.countAllByBorrowerIdIsNotNull();
+    }
+
+    public List<BikeDto> findAllAvailableBikes () {
+        return bikeRepository.findAllByBorrowerIdIsNullOrderByDayPriceAsc()
+                .stream().map(bike -> new BikeDto(
+                        bike.getId(),
+                        bike.getModel(),
+                        bike.getSerialNo(),
+                        bike.getHourPrice(),
+                        bike.getDayPrice()
+                )).collect(Collectors.toList());
     }
 }
