@@ -1,10 +1,10 @@
-package com.example.springdata;
+package com.example.bikerent;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringDataApplicationTests {
+class BikerentApplicationTests {
 
     @Test
     void contextLoads() {
