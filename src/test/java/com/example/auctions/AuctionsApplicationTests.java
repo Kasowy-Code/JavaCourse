@@ -1,10 +1,10 @@
-package com.example.manytomany;
+package com.example.auctions;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ManyToManyApplicationTests {
+class AuctionsApplicationTests {
 
     @Test
     void contextLoads() {
