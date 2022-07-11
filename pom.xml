@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>OneToMany</artifactId>
+    <artifactId>ManyToMany</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>OneToMany</name>
-    <description>OneToMany</description>
+    <name>ManyToMany</name>
+    <description>ManyToMany</description>
     <properties>
         <java.version>17</java.version>
     </properties>
