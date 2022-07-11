@@ -1,25 +1,33 @@
-package com.example.onetoone;
+package com.example.onetomany;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-class UserDetails {
+class Client {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private String address;
-    @OneToOne(mappedBy = "userDetails")
-    private User user;
+    @OneToMany
+    @JoinColumn(name = "client_id")
+    private List<ClientOrder> orders = new ArrayList<>();
 
-    public UserDetails() {
+    public Client() {
     }
 
-    public UserDetails(String firstName, String lastName, String address) {
+    public Client(String firstName, String lastName, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+    }
+
+    public void addOrder(ClientOrder order) {
+        orders.add(order);
     }
 
     public Long getId() {
@@ -54,21 +62,22 @@ class UserDetails {
         this.address = address;
     }
 
-    public User getUser() {
-        return user;
+    public List<ClientOrder> getOrders() {
+        return orders;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setOrders(List<ClientOrder> orders) {
+        this.orders = orders;
     }
 
     @Override
     public String toString() {
-        return "UserDetails{" +
+        return "Client{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }
