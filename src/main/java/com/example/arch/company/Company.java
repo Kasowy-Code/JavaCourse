@@ -1,11 +1,13 @@
-package com.example.arch;
+package com.example.arch.company;
+
+import com.example.arch.joboffer.JobOffer;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-class Company {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

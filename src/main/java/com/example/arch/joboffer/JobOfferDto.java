@@ -1,12 +1,8 @@
-package com.example.arch;
+package com.example.arch.joboffer;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-class JobOffer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+class JobOfferDto {
     private Long id;
     private String title;
     private String description;
@@ -16,10 +12,8 @@ class JobOffer {
     private Double minSalary;
     private Double maxSalary;
     private LocalDateTime dateAdded;
-    private Integer submissions;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "company_id")
-    private Company company;
+    private Long companyId;
+    private String companyName;
 
     public Long getId() {
         return id;
@@ -93,19 +87,19 @@ class JobOffer {
         this.dateAdded = dateAdded;
     }
 
-    public Integer getSubmissions() {
-        return submissions;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setSubmissions(Integer submissions) {
-        this.submissions = submissions;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
-    public Company getCompany() {
-        return company;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

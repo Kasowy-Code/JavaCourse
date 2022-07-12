@@ -1,4 +1,4 @@
-package com.example.arch;
+package com.example.arch.joboffer;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

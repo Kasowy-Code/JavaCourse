@@ -1,5 +1,6 @@
-package com.example.arch;
+package com.example.arch.company;
 
+import com.example.arch.joboffer.JobOffer;
 import org.springframework.stereotype.Service;
 
 @Service

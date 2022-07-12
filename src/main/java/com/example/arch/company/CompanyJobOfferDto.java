@@ -1,4 +1,4 @@
-package com.example.arch;
+package com.example.arch.company;
 
 class CompanyJobOfferDto {
     private Long id;
