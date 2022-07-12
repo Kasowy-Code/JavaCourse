@@ -1,4 +1,4 @@
-package com.example.mvcdemo;
+package com.example.params;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

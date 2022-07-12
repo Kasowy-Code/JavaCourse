@@ -1,13 +1,13 @@
-package com.example.mvcdemo;
+package com.example.params;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MvcdemoApplication {
+public class ParamsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MvcdemoApplication.class, args);
+        SpringApplication.run(ParamsApplication.class, args);
     }
 
 }
