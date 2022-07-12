@@ -1,13 +1,13 @@
-package com.example.mvc;
+package com.example.vatcalc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MvcApplication {
+public class VatCalcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MvcApplication.class, args);
+        SpringApplication.run(VatCalcApplication.class, args);
     }
 
 }
