@@ -3,6 +3,7 @@ package com.example.shop;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 class ProductRepository {
@@ -34,11 +35,11 @@ class ProductRepository {
         return result;
     }
 
-    Product findById(int id) {
-        if (id > products.size()) {
-            return null;
+    Optional<Product> findById(int id) {
+        if (id > products.size() - 1) {
+            return Optional.empty();
         } else {
-            return products.get(id - 1); //identyfikatory liczymy od 1
+            return Optional.of(products.get(id - 1));
         }
     }
 }

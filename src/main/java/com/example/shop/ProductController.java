@@ -1,5 +1,6 @@
 package com.example.shop;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -22,12 +23,17 @@ class ProductController {
     }
 
     @GetMapping("/{id}")
-    Product getProductById(@PathVariable Integer id) {
-        return productRepository.findById(id);
+    ResponseEntity<Product> getProductById(@PathVariable Integer id) {
+        return productRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/producer")
-    Producer getProducerByProductId(@PathVariable Integer id) {
-        return productRepository.findById(id).getProducer();
+    ResponseEntity<Producer> getProducerByProductId(@PathVariable Integer id) {
+        return productRepository.findById(id)
+                .map(Product::getProducer)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
