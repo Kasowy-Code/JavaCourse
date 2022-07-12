@@ -1,13 +1,13 @@
-package com.example.params;
+package com.example.forms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MvcdemoApplicationTests {
+class FormsApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
