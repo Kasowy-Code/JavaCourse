@@ -1,10 +1,10 @@
-package com.example.vatcalc;
+package com.example.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VatCalcApplicationTests {
+class ApiApplicationTests {
 
     @Test
     void contextLoads() {
