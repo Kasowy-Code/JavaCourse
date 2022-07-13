@@ -1,13 +1,13 @@
-package com.example.constraints;
+package com.example.emailapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PersonValidatorApplicationTests {
+class EmailAppApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
