@@ -1,10 +1,10 @@
-package com.example.wholesaler;
+package com.example.validation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WholesalerApplicationTests {
+class ValidationApplicationTests {
 
 	@Test
 	void contextLoads() {
