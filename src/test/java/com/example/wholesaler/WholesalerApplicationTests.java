@@ -1,10 +1,10 @@
-package com.example.emailapp;
+package com.example.wholesaler;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmailAppApplicationTests {
+class WholesalerApplicationTests {
 
 	@Test
 	void contextLoads() {
