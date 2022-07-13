@@ -1,13 +1,13 @@
-package com.example.validation;
+package com.example.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ValidationApplication {
+public class SecurityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ValidationApplication.class, args);
+		SpringApplication.run(SecurityApplication.class, args);
 	}
 
 }
