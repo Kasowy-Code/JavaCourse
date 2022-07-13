@@ -1,10 +1,10 @@
-package com.example.arch;
+package com.example.personvalidator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ArchApplicationTests {
+class PersonValidatorApplicationTests {
 
     @Test
     void contextLoads() {
